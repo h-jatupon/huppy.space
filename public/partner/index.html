@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <!-- /.website title -->
+        <title>Huppy.space | จุดรับพัสดุใกล้บ้านคุณ</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" charset="utf-8">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- CSS Files -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
+        <link href="css/animate.css" rel="stylesheet" media="screen">
+        <link href="css/owl.theme.css" rel="stylesheet">
+        <link href="css/owl.carousel.css" rel="stylesheet">
+
+        <!-- Colors -->
+        <link href="css/css-index.css" rel="stylesheet" media="screen">
+        <!-- <link href="css/css-index-green.css" rel="stylesheet" media="screen"> -->
+        <!-- <link href="css/css-index-purple.css" rel="stylesheet" media="screen"> -->
+        <!-- <link href="css/css-index-red.css" rel="stylesheet" media="screen"> -->
+        <!-- <link href="css/css-index-orange.css" rel="stylesheet" media="screen"> -->
+        <!-- <link href="css/css-index-yellow.css" rel="stylesheet" media="screen"> -->
+
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" />
+
+
+        <link rel="shortcut icon" href="../images/ico/logo.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/ico/logo.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/ico/logo.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/ico/logo.png">
+        <link rel="apple-touch-icon-precomposed" href="../images/ico/logo.png">
+        <style>
+                /* Always set the map height explicitly to define the size of the div
+                 * element that contains the map. */
+                #map {
+                    width: 100%;
+                  height: 200px;
+                }
+                /* Optional: Makes the sample page fill the window. */
+               
+                #description {
+                  font-family: Roboto;
+                  font-size: 15px;
+                  font-weight: 300;
+                }
+          
+                #infowindow-content .title {
+                  font-weight: bold;
+                }
+          
+                #infowindow-content {
+                  display: none;
+                }
+          
+                #map #infowindow-content {
+                  display: inline;
+                }
+          
+                .pac-card {
+                  margin: 0px 0px 0 0;
+                  border-radius: 2px 0 0 2px;
+                  box-sizing: border-box;
+                  -moz-box-sizing: border-box;
+                  outline: none;
+                  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+                  background-color: #fff;
+                  font-family: Roboto;
+                  width: 100%;
+                  height: auto;
+                }
+        
+          
+                .pac-controls {
+                  display: inline-block;
+                  padding: 5px 11px;
+                }
+          
+                .pac-controls label {
+                  font-family: Roboto;
+                  font-size: 13px;
+                  font-weight: 300;
+                }
+          
+                #pac-input {
+                  background-color: #fff;
+                  font-family: Roboto;
+                  font-size: 15px;
+                  font-weight: 300;
+                  width:100%;
+                  text-overflow: ellipsis;
+                }
+          
+                #pac-input:focus {
+                  border-color: #4d90fe;
+                }
+          
+                #title {
+                  color: #fff;
+                  background-color: #4d90fe;
+                  font-size: 25px;
+                  font-weight: 500;
+                  padding: 6px 12px;
+                }
+              </style>
+        <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+        <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBx9VgPDcirdmm21Is_ujENdjE-drKwtD8",
+            authDomain: "hubspace-01.firebaseapp.com",
+            databaseURL: "https://hubspace-01.firebaseio.com",
+            projectId: "hubspace-01",
+            storageBucket: "hubspace-01.appspot.com",
+            messagingSenderId: "806359360193"
+        };
+        firebase.initializeApp(config);
+        </script>
+
+    </head>
+
+    <body data-spy="scroll" data-target="#navbar-scroll">
+
+        <!-- /.preloader -->
+        <div id="preloader"></div>
+        <div id="top"></div>
+
+        <!-- /.parallax full screen background image -->
+        <div class="fullscreen landing parallax" style="background-image:url('images/bg.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
+
+            <div class="overlay">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+
+                            <!-- /.logo -->
+                            <div class="wow fadeInDown"> <a href="../index.html"><img style="width:160px;height:150px;" src="images/logo.png" alt="logo"></a></div>
+
+                            <!-- /.main title -->
+                            <h1 class="wow fadeInLeft">
+                                Huppy.space | จุดรับพัสดุใกล้บ้านคุณ
+                            </h1>
+
+                            <!-- /.header paragraph -->
+                            <div class="landing-text wow fadeInUp">
+                                <p>เพื่อนบ้านกำลังมีปัญหาสั่งซื้อของทางอินเทอร์เน็ต แต่ไม่มีเวลาอยู่รับ แต่คุณช่วยเค้าได้</p>
+                            </div>
+
+                            <!-- /.header button -->
+                            <!--<div class="head-btn wow fadeInLeft">
+                                <a href="#feature" class="btn-primary">Features</a>
+                                <a href="#download" class="btn-default">Download</a>
+                            </div>-->
+
+
+
+                        </div>
+
+                        <!-- /.signup form -->
+                        <div class="col-md-5">
+
+                            <div class="signup-header wow fadeInUp" style="padding: 5%;">
+                                <h2 class="form-title text-center">สมัครเป็นจุดรับพัสดุให้กับเพื่อนบ้าน</h2>
+                                <p class=" text-center" style="color:white;">ถ้าคุณอยู่บ้านตลอด หรือ เป็นร้านค้า มาสร้างรายได้เสริมจากการเป็นจุดรับพัสดุให้กับเพื่อนบ้านกัน</p>
+                                <form class="form-header" id="register">
+                                    <div class="form-group">
+                                      <div class="row">
+                                        <div class="col-xs-6">
+                                          <input id="email" class="form-control input-lg" placeholder="อีเมล" type="email" required>
+                                        </div>
+                                        <div class="col-xs-6">
+                                          <input id="password" class="form-control input-lg" placeholder="รหัสผ่าน" type="password" required>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <div class="row">
+                                        <div class="col-xs-6">
+                                          <input id="fullname" class="form-control input-lg" placeholder="ชื่อ-นามสกุล" type="text" required>
+                                        </div>
+                                        <div class="col-xs-6">
+                                          <input id="tel" class="form-control input-lg" placeholder="เบอร์โทรศัพท์" type="tel" required>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <textarea id="address" class="form-control" rows="3" placeholder="ที่อยู่(บ้านเลขที่/หมู่/ซอย/ถนน/ตำบล/อำเภอ/จังหวัด/รหัสไปรษณีย์)" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                            <input id="pac-input" class="controls" type="text" placeholder="ค้นหา">
+                                            <div id="map"></div>                                              
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="exampleInputFile">หลักฐานยืนยันที่อยู่</label>
+                                      <input type="file" id="file" required>
+                                      <p class="help-block">ถ่ายรูปบัตรประชาชน หรือ สำเนาทะเบียนบ้าน หรือบัตรที่ทางราชการออกให้และมีที่อยู่แสดง.</p>
+                                    </div>
+                                    <div class="checkbox">
+                                      <label><input type="checkbox" id="condition">ข้าพเจ้ายอมรับ<a href="#" data-toggle="modal" data-target="#myModal">ข้อตกลงการเป็นจุดรับพัสดุ</a></label>
+                                    </div>
+                                    <div class="form-group last">
+                                        <input id="btn_register" type="submit" class="btn btn-warning btn-block btn-lg" value="ลงทะเบียน">
+                                    </div>
+                                    <p class="privacy text-center">เป็นจุดรับพัสดุแล้ว? <a href="signin/index.html">เข้าสู่ระบบ</a>.</p>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">ข้อตกลงการเป็นจุดรับพัสดุ</h4>
+              </div>
+              <div class="modal-body">
+                <p>1.ต้องสร้างรายการรับพัสดุทันทีที่ได้รับพัสดุจากแมสเซนเจอร์ (ไม่เกิน 5 นาที)</p>
+                <p>2.พัสดุที่รับฝากต้องมาจาก บริษัทไปรษณีย์ไทย บริษัทเคอรรี่เอกซ์เพลส บริษัท ลาซาด้า เท่านั้น</p>
+                <p>3.หากพัสดุเสียหายอันเกิดจากตัวจุดรับพัสดุๆจะถูกลดคะแนนลง 1 ดาว(ครั้งแรกทาง Huppy.space จะรับผิดชอบค่าเสียหายพัสดุให้ก่อน)</p>
+                <br>
+                <p>4.หากพัสดุเสียหายมากกว่า 1 ครั้งขึ้นไป จุดรับพัสดุจะต้องรับผิดชอบค่าเสียหายของพัสดดังนี้</p>
+                <p style="padding-left:2em">4.1.รับผิดชอบตามมูลค่าจริงแต่ไม่เกิน 300 บาทกรณีลูกค้าใช้บริการฝากพัสดุทั่วไป</p>
+                <p style="padding-left:2em">4.2 รับผิดชอบตามมูลค่าจริงแต่ไม่เกิน 1500 บาทกรณีลูกค้าใช้บริการฝากพัสดุอ่อนไหวหรือให้ไปส่งถึงบ้าน</p>
+                <br>
+                <p>5.หากคะแนนความน่าเชื่อถือต่ำกว่าหรือเท่ากับ 2 ดาวไม่อนุญาตให้จุดรับพัสดุนั้นเปิดบริการฝากพัสดุ</p>
+                <p>6.การสมัครเป็นจุดรับพัสดุฟรี ไม่เสียค่าใช้จ่าย</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NAVIGATION -->
+        <div id="menu">
+            <nav class="navbar-wrapper navbar-default" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-backyard">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!--<a class="navbar-brand site-name" href="#top"><img src="images/logo2.png" alt="logo"></a>-->
+                    </div>
+
+                    <div id="navbar-scroll" class="collapse navbar-collapse navbar-backyard navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#intro">จุดรับพัสดุคืออะไร?</a></li>
+                            <li><a href="#feature">สิ่งที่จุดรับพัสดุจะได้</a></li>
+                            <li><a href="#download">จุดรับพัสดุต้องทำอะไรบ้าง?</a></li>
+                            <li><a href="#client">ค่าบริการต่างๆที่จุดรับได้</a></li>
+                            <li><a href="#testi">ทีมงานของเรา</a></li>
+                            <li><a href="#contact">ติดต่อเรา</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- /.intro section -->
+        <div id="intro">
+            <div class="container">
+                <div class="row">
+                    <!-- /.intro image -->
+                    <div class="col-md-6 intro-pic wow slideInLeft">
+                        <iframe width="100%" height="auto" style="min-height: 300px;" src="https://www.youtube.com/embed/v6XMAues1DQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+
+                    <!-- /.intro content -->
+                    <div class="col-md-6 wow slideInRight text-center">
+                        <h2>จุดรับพัสดุคืออะไร?</h2>
+                        <p>เพื่อนบ้านของคุณอาจสั่งซื้อของทางอินเตอร์เน็ต แต่ไม่มีเวลาอยู่รับของที่บ้านเพราะอาจต้องรีบออกไปทำงาน
+                          แต่คุณสามารถช่วยเค้าได้ หากคุณเป็นร้านค้า หรือ อยู่บ้านในช่วง 9.00 - 20.00 น. เท่านี้คุณก็สามารถสร้างรายได้เสริม
+                          จากการเป็นจุดรับฝากพัสดุให้กับเพื่อนบ้านได้แล้ว
+                        </p>
+                        <a href="#feature" class="btn btn-default">สิ่งที่จุดรับพัสดุจะได้</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- /.feature section -->
+        <div id="feature">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center feature-title">
+
+                        <!-- /.feature title -->
+                        <h2>สิ่งที่คุณจะได้เมื่อเป็นจุดรับพัสดุกับ Huppy.space</h2>
+                        <p>มีข้อดีมากมายจากการเป็นจุดรับพัสดุกับทาง Huppy.space ทั้งได้ช่วยเหลือเพื่อนบ้าน และ สร้างรายได้เสริม ที่สำคัญสมัครฟรี ไม่ต้องลงทุนใดๆทั้งสิ้น.</p>
+                    </div>
+                </div>
+                <div class="row row-feat">
+                    <div class="col-md-4 text-center">
+
+                        <!-- /.feature image -->
+                        <div class="feature-img">
+                            <img src="images/feature-image.jpg" alt="image" class="img-responsive wow fadeInLeft">
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+
+                        <!-- /.feature 1 -->
+                        <div class="col-sm-6 feat-list">
+                            <i class="pe-7s-cash pe-5x pe-va wow fadeInUp" data-wow-delay="0.2s"></i>
+                            <div class="inner">
+                                <h4>รายได้เสริม</h4>
+                                <p>ทุกพัสดุที่มาฝากกับคุณคุณจะได้ส่วนแบ่ง และได้มากขึ้นหากเพื่อนบ้านอยากให้คุณมาส่งพัสดุที่ฝากไว้ถึงหน้าบ้าน</p>
+                            </div>
+                        </div>
+
+                        <!-- /.feature 2 -->
+                        <div class="col-sm-6 feat-list">
+                            <i class="pe-7s-cart pe-5x pe-va wow fadeInUp"></i>
+                            <div class="inner">
+                                <h4>ลูกค้าเข้าร้านมากขึ้น</h4>
+                                <p>เมื่อเพื่อนบ้านมารับพัสดุหากคุณเป็นร้านค้า เช่น ร้านขายของชำ ร้านอาหาร ก็มีโอกาสที่เค้าจะมาอุดหนุนสินค้าที่ร้านคุณด้วยนะ
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- /.feature 3 -->
+                        <div class="col-sm-6 feat-list">
+                            <i class="pe-7s-users pe-5x pe-va wow fadeInUp" data-wow-delay="0.6s"></i>
+                            <div class="inner">
+                                <h4>สร้างสังคมเพื่อนบ้านที่ดี</h4>
+                                <p>คุณจะได้เป็นส่วนหนึ่งของสังคมใหม่ที่ดีขึ้น น่าอยู่ขึ้น ด้วยการช่วยเหลือกันและกัน.</p>
+                            </div>
+                        </div>
+
+                        <!-- /.feature 4 -->
+                        <div class="col-sm-6 feat-list">
+                            <i class="glyphicon glyphicon-signal pe-5x pe-va wow fadeInUp" data-wow-delay="0.4s"></i>
+                            <div class="inner">
+                                <h4>โอกาสทางธุรกิจในอนาคต</h4>
+                                <p>Huppy.space วางแผนที่จะให้ร้านค้าของคุณ มีรายได้จากทางอื่นมากขึ้น หากคุณเป็นพาร์ทเนอร์กับเรา เราจะดูแลคุณอย่างดี.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- /.feature 2 section -->
+        <!--<div id="feature-2">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6 wow fadeInLeft">
+                        <h2>Learn how to make your app marketing efficient</h2>
+                        <p>Good marketing makes the company look smart. <span class="highlight">Great marketing</span> makes the customer feel smart, - Joe Chernov. Never doubt a small group of thoughtful, committed people can change the world. Indeed, it is the only thing that ever has, - Margaret Mead. The best way to predict the future is to create it, - Peter Drucker.
+                        </p>
+
+                        <div class="btn-section"><a href="#download" class="btn-default">Download Now</a></div>
+
+                    </div>
+
+                    <div class="col-md-6 feature-2-pic wow fadeInRight">
+                        <img src="images/feature2-image.jpg" alt="macbook" class="img-responsive">
+                    </div>
+                </div>
+
+            </div>
+        </div>-->
+
+
+        <!-- /.download section -->
+        <div id="download">
+            <div class="action fullscreen parallax" style="background-image:url('images/bg.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
+                <div class="overlay">
+                    <div class="container">
+                        <div class="col-md-12 text-center">
+
+                            <!-- /.download title -->
+                            <h2 class="wow fadeInRight">เป็นจุดรับพัสดุต้องทำอะไรบ้าง?</h2>
+                            <p class="download-text wow fadeInLeft">เมื่อแมสเซ็นเจอร์มาฝากพัสดุเพียงทำตามขั้นตอนดังนี้ทันที.</p>
+
+                            <div class="row" style="min-width:300px;">
+                              <div class="col-sm-3">
+                                <div class="card">
+                                  <img src="images/ins1.png" style="width: 100%;height: auto;">
+                                  <div class="card-block">
+                                    <h4 class="card-title">1.)เมื่อแมสเซ็นเจอร์มาฝากพัสดุ</h4>
+                                    <p class="card-text">เปิดเว็บไซต์ขึ้นมาและทำการกดปุ่ม + เพื่อแจ้งเพื่อนบ้านว่าพัสดุมาถึงแล้ว.</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-3">
+                                <div class="card">
+                                  <img src="images/ins2.png" style="width: 100%;height: auto;">
+                                  <div class="card-block">
+                                    <h4 class="card-title">2.)กรอกข้อมูลพัสดุ</h4>
+                                    <p class="card-text">ทำการกรอกข้อมูลพัสดุเพื่อสร้างหลักฐานการรับพัสดุขึ้นมา จากนั้นกดยืนยัน.</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-3">
+                                <div class="card">
+                                  <img src="images/ins3.png" style="width: 100%;height: auto;">
+                                  <div class="card-block">
+                                    <h4 class="card-title">3.)เก็บพัสดุไว้ในที่ปลอดภัย</h4>
+                                    <p class="card-text">หลังจากใส่ข้อมูลพัสดุเสร็จสิ้น ให้นำพัสดุไปเก็บไว้ในที่ปลอดภัย เพื่อป้องกันการเสียหาย.</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-3">
+                                <div class="card">
+                                  <img src="images/ins4.png" style="width: 100%;height: auto;">
+                                  <div class="card-block">
+                                    <h4 class="card-title">4.)รอเพื่อนบ้านมารับพัสดุ</h4>
+                                    <p class="card-text">ทำการขอดูบัตรประชาชน เพื่อส่งมอบพัสดุให้กับเพื่อนบ้าน และ เก็บค่าบริการ.</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- /.pricing section -->
+        <div id="client">
+            <div class="container">
+                <div class="text-center">
+
+                    <!-- /.pricing title -->
+                    <h2 class="wow fadeInLeft">ค่าบริการต่างๆ ที่จุดรับพัสดุจะได้</h2>
+                    <div class="title-line wow fadeInRight"></div>
+                </div>
+                <div class="row package-option">
+
+                    <!-- /.package 1 -->
+                    <div class="col-sm-12">
+                        <div class="price-box wow fadeInUp">
+                            <div class="price-heading text-center">
+
+                                <!-- /.package icon -->
+                                <i class="pe-7s-box2 pe-5x"></i>
+
+                                <!-- /.package name -->
+                                <h3>ค่าฝากพัสดุทั่วไป</h3>
+                            </div>
+
+                            <!-- /.price -->
+                            <div class="price-group text-center">
+                                <span class="dollar">&#3647;</span>
+                                <span class="price">15</span>
+                                <span class="time">ต่อพัสดุ</span>
+                            </div>
+
+                            <!-- /.package features -->
+                            <ul class="price-feature text-center">
+                                <li>ต้องเก็บรักษาอย่างดีเป็นเวลา 2 วัน</li>
+                                <li>เกินกำหนดได้เพิ่มวันละ 5 บาท</li>
+                                <li>ค่าธรรมเนียม 5 บาทต่อพัสดุ</li>
+                            </ul>
+
+                            <!-- /.package button -->
+                            <!--<div class="price-footer text-center">
+                                <a class="btn btn-price" href="#">BUY NOW</a>
+                            </div>-->
+                        </div>
+                    </div>
+
+                    <!-- /.package 2 -->
+                    <!--
+                    <div class="col-sm-4">
+                        <div class="price-box wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="price-heading text-center">
+
+                                <i class="pe-7s-box2 pe-5x"></i>
+
+                                <h3>ฝากพัสดุอ่อนไหว</h3>
+                            </div>
+
+                            <div class="price-group text-center">
+                                <span class="dollar">&#3647;</span>
+                                <span class="price">25</span>
+                                <span class="time">/ต่อพัสดุ</span>
+                            </div>
+
+                            <ul class="price-feature text-center">
+                              <li>ต้องเก็บรักษาอย่างดีเป็นเวลา 3 วัน</li>
+                              <li>เกินกำหนดได้เพิ่มวันละ 5 บาท</li>
+                              <li>ค่าธรรมเนียม 7 บาทต่อพัสดุ</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                -->
+
+                    <!-- /.package 3 -->
+                    <!--<div class="col-sm-4">
+                        <div class="price-box wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="price-heading  text-center">
+
+                                <i class="pe-7s-bicycle pe-5x"></i>
+
+                                <h3>ไปส่งถึงบ้าน</h3>
+                            </div>
+
+                            <div class="price-group text-center">
+                                <span class="dollar">&#3647;</span>
+                                <span class="price">35</span>
+                                <span class="time">/พัสดุ</span>
+                            </div>
+
+                            <ul class="price-feature text-center">
+                              <li>ต้องเก็บรักษาอย่างดีเป็นเวลา 2 วัน</li>
+                              <li>เกินกำหนดได้เพิ่มวันละ 5 บาท</li>
+                              <li>ค่าธรรมเนียม 10 บาทต่อพัสดุ</li>
+                            </ul>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+
+        <!-- /.client section -->
+        <!--
+        <div id="client">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <img alt="client" src="images/client1.png" class="wow fadeInUp">
+                        <img alt="client" src="images/client2.png" class="wow fadeInUp" data-wow-delay="0.2s">
+                        <img alt="client" src="images/client3.png" class="wow fadeInUp" data-wow-delay="0.4s">
+                        <img alt="client" src="images/client4.png" class="wow fadeInUp" data-wow-delay="0.6s">
+                    </div>
+                </div>
+            </div>
+        </div>
+      -->
+
+        <!-- /.testimonial section -->
+        <div id="testi">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="wow fadeInLeft">ทีมงานผู้ก่อตั้ง Huppy.space</h2>
+                    <div class="title-line wow fadeInRight"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div id="owl-testi" class="owl-carousel owl-theme wow fadeInUp">
+
+<!--
+                            <div class="testi-item">
+                                <div class="client-pic text-center">
+
+                                    <img src="images/testi1.png" alt="client">
+                                </div>
+                                <div class="box">
+
+                                    <p class="message text-center">"We are very happy and satisfied with Backyard service. Our account manager is efficient and very knowledgeable. It was able to create a vast fan base within very short period of time. We would highly recommend Backyard App to anyone."</p>
+                                </div>
+                                <div class="client-info text-center">
+
+                                    Jennifer Lopez, <span class="company">Microsoft</span>
+                                </div>
+                            </div>
+
+                            <div class="testi-item">
+                                <div class="client-pic text-center">
+
+                                    <img src="images/testi2.png" alt="client">
+                                </div>
+                                <div class="box">
+
+                                    <p class="message text-center">"Everything looks great... Thanks for the quick revision turn around. We were lucky to find you guys and will definitely be using some of your other services in the near future."</p>
+                                </div>
+                                <div class="client-info text-center">
+
+                                    Mike Portnoy, <span class="company">Dream Theater</span>
+                                </div>
+                            </div>
+-->
+
+
+                            <div class="testi-item">
+                                <div class="text-center">
+                                  <img src="images/team.jpg" style="width: 100%;height: auto;">
+                                </div>
+                                <div class="box">
+
+                                    <!-- /.testimonial content -->
+                                    <p class="message text-center">"พวกเรามีความมุ่งมั่นและตั้งใจที่จะแก้ปัญหาการตีกลับของพัสดุให้กับธุรกิจโลจิสติกส์ และ เรามองว่าการออกแบบธุรกิจที่ดีคือการที่เราได้คืนกำไรให้กับประชาชน ดังนั้น Huppy.space จึงเลือกที่จะ
+                                      ดำเนินธุรกิจภายใต้แนวคิด Sharing Economy, เราอยากเป็นส่วนหนึ่งที่ช่วยให้ธุรกิจ Local Business ได้มีรายได้เพิ่มขึ้นจาก โซลูชั่นของเรา"</p>
+                                </div>
+                                <div class="client-info text-center">
+
+                                    <!-- /.client name -->
+                                    จตุพร หงษ์เวียง<br> <span class="company">CEO, Huppy.space</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- /.contact section -->
+        <div id="contact">
+            <div class="contact fullscreen parallax" style="background-image:url('images/bg.jpg');" data-img-width="2000" data-img-height="1334" data-diff="100">
+                <div class="overlay">
+                    <div class="container">
+                        <div class="row contact-row">
+
+                            <!-- /.address and contact -->
+                            <div class="col-sm-5 contact-left wow fadeInUp">
+                                <h2><span class="highlight">เราดีใจ</span>ที่จะได้พูดคุยกับคุณ</h2>
+                                <ul class="ul-address">
+                                    <li><i class="pe-7s-map-marker"></i>ห้องชมรมผู้ประกอบการนักศึกษา ภายใต้ศูนย์บ่มเพาะวิสาหกิจ  </br>
+                                        ชั้น 8 ตึก STRI มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ
+                                    </li>
+                                    <li><i class="pe-7s-phone"></i>061-775-8056</br>
+                                        099-085-9191
+                                    </li>
+                                    <li><i class="pe-7s-mail"></i><a href="jph.huppy@gmail.com">jph.huppy@gmail.com</a></li>
+                                    <li><i class="pe-7s-look"></i><a href="index.html">www.huppy.space</a></li>
+                                </ul>
+
+                            </div>
+
+                            <!-- /.contact form -->
+                            <div class="col-sm-7 contact-right">
+                                <form id="contact-form" class="form-horizontal" >
+                                    <div class="form-group">
+                                        <input id="ct_name" type="text" class="form-control wow fadeInUp" placeholder="ชื่อ" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="ct_email" type="email" class="form-control wow fadeInUp" placeholder="อีเมล" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea id="ct_message" rows="20" cols="20"  class="form-control input-message wow fadeInUp"  placeholder="ข้อความ" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="ส่งข้อความ" class="btn btn-success wow fadeInUp" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- /.footer -->
+        <footer id="footer">
+            <div class="container">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <!-- /.social links -->
+                    <div class="social text-center">
+                        <ul>
+                            <li><a class="wow fadeInUp" href="https://www.facebook.com/Huppy-1320039474752551/" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                            <li><a class="wow fadeInUp" href="https://www.youtube.com/channel/UC0GUmc1adRAYdkqvnkQSnVQ" data-wow-delay="0.6s"><i class="fa fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="text-center wow fadeInUp" style="font-size: 14px;">Copyright Backyard 2015 - Template by  <a href="http://bootstrapthemes.co/" target="_blank">BootstrapThemes</a></div>
+                    <a href="#" class="scrollToTop"><i class="pe-7s-up-arrow pe-va"></i></a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- /.javascript files -->
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>            
+        <script>
+        var lat;
+        var lng;
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -33.8688, lng: 151.2195},
+          zoom: 17,
+          mapTypeControl: false,
+          mapTypeId: 'roadmap'
+        });
+
+        var myLatLng = {lat: -25.363, lng: 131.044};
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        var infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('ตำแหน่งของคุณ.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+        
+      
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+
+        
+        map.addListener('center_changed', function() {
+            // 3 seconds after the center of the map has changed, pan back to the
+            // marker.
+            var NewMapCenter = map.getCenter();
+            lat = NewMapCenter.lat();
+            lng = NewMapCenter.lng();
+            marker.setPosition(NewMapCenter);
+        });
+
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+          var NewMapCenter = map.getCenter();
+            lat = NewMapCenter.lat();
+            lng = NewMapCenter.lng();
+            marker.setPosition(NewMapCenter);
+        });
+        }        
+
+          $("#btn_register").prop('disabled', true);
+          $('#condition').click(function() {
+              if(document.getElementById('condition').checked) {
+                $("#btn_register").prop('disabled', false);
+              }else{
+                $("#btn_register").prop('disabled', true);
+              }
+          });
+
+          new WOW().init();
+          var contact = firebase.database().ref('contact/');
+
+          $('#contact-form').submit(function (ev) {
+             ev.preventDefault(); // to stop the form from submitting
+             var ct_name = $('#ct_name').val();
+             var ct_email = $('#ct_email').val();
+             var ct_message = $('#ct_message').val();
+
+             var new_contact = contact.push();
+             new_contact.set({
+                   name: ct_name,
+                   email: ct_email,
+                   message: ct_message,
+               });
+
+               alert("ทางทีมงานได้รับข้อความแล้วครับ จะติดต่อกลับภายใน 24 ชม.");
+               window.location = "index.html";
+          });
+
+          $('#register').submit(function (ev) {
+           ev.preventDefault(); // to stop the form from submitting
+           /* Validations go here */
+
+           var fullname = $('#fullname').val();
+           var password = $('#password').val();
+           var email = $('#email').val();
+           var tel = $('#tel').val();
+           var address = $('#address').val();
+           var file = document.getElementById('file').files[0];
+
+           firebase.auth().createUserWithEmailAndPassword(email, password).then(function(){
+             $("#btn_register").prop('disabled', true);
+             $("#btn_register").prop('value', 'กำลังลงทะเบียน...');
+
+            // Points to the root reference
+             var storageRef = firebase.storage().ref();
+
+             // Points to 'images'
+             var imagesRef = storageRef.child('images');
+
+             // Points to 'images/space.jpg'
+             // Note that you can use variables to create child values
+             // filename will random name to advoid existing name.
+             var fileName = Math.random().toString(36).substring(7) + file.name;
+             var spaceRef = imagesRef.child(fileName);
+
+             // File path is 'images/space.jpg'
+             var path = spaceRef.fullPath
+
+             // File name is 'space.jpg'
+             var name = spaceRef.name
+
+             // Points to 'images'
+             var imagesRef = spaceRef.parent;
+
+             // Create the file metadata
+             var metadata = {
+                 contentType: 'image/jpeg'
+             };
+
+             // Upload file and metadata to the object 'images/mountains.jpg'
+             var uploadTask = storageRef.child('pickuppoint/' + fileName).put(file, metadata);
+
+             // Listen for state changes, errors, and completion of the upload.
+             uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+                 function (snapshot) {
+                     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                     var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                     console.log('Upload is ' + progress + '% done');
+                     switch (snapshot.state) {
+                         case firebase.storage.TaskState.PAUSED: // or 'paused'
+                             console.log('Upload is paused');
+                             break;
+                         case firebase.storage.TaskState.RUNNING: // or 'running'
+                             console.log('Upload is running');
+                             break;
+                     }
+                 }, function (error) {
+
+                     // A full list of error codes is available at
+                     // https://firebase.google.com/docs/storage/web/handle-errors
+                     switch (error.code) {
+                         case 'storage/unauthorized':
+                             // User doesn't have permission to access the object
+                             console.log("permission denied.");
+                             break;
+
+                         case 'storage/canceled':
+                             // User canceled the upload
+                             console.log("user canceled the upload.");
+                             break;
+
+                         case 'storage/unknown':
+                             // Unknown error occurred, inspect error.serverResponse
+                             console.log("Unknown error occurred.");
+                             break;
+                     }
+                 }, function () {
+                     // Upload completed successfully, now we can get the download URL
+                     // Create a new post reference with an auto-generated id
+                       firebase.auth().signInWithEmailAndPassword(email, password).then(function()
+                       {
+                         var pickuppoint = firebase.database().ref('pickuppoint/' + firebase.auth().currentUser.uid);
+                         pickuppoint.set({
+                               fullname: fullname,
+                               email: email,
+                               phone: tel,
+                               address: address,
+                               status: 0,
+                               income: 0,
+                               storage: 0,
+                               sent: 0,
+                               file: uploadTask.snapshot.downloadURL,
+                               lat: lat,
+                               lng: lng
+                           });
+
+                           window.location = "dashboard/index.html";
+
+                       }).catch(function(error) {
+                          // Handle Errors here.
+                          var errorCode = error.code;
+                          var errorMessage = error.message;
+                          // ...
+                          console.log(errorMessage);
+                       });
+                 });
+           }).catch(function(error) {
+             // Handle Errors here.
+             var errorCode = error.code;
+             var errorMessage = error.message;
+             // ...
+             alert(errorMessage);
+           });
+          });
+
+        </script>
+         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCap3HAEJsDSIOqsmOxgZ9gE5uB4SnhINs&libraries=places&callback=initMap"
+         async defer></script>
+       
+    </body>
+</html>

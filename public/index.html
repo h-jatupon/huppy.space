@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Huppy.space</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet"> 
+    <link href="css/lightbox.css" rel="stylesheet"> 
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+	    <script src="js/html5shiv.js"></script>
+	    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/logo.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/logo.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/logo.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/logo.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/logo.png">
+    
+    
+<script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBx9VgPDcirdmm21Is_ujENdjE-drKwtD8",
+    authDomain: "hubspace-01.firebaseapp.com",
+    databaseURL: "https://hubspace-01.firebaseio.com",
+    projectId: "hubspace-01",
+    storageBucket: "hubspace-01.appspot.com",
+    messagingSenderId: "806359360193"
+  };
+  firebase.initializeApp(config);
+</script>
+</head><!--/head-->
+
+<body>
+	<header id="header">    
+        <div class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                    	<h1><img src="images/logo.png"alt="logo"></h1>
+                    </a>                    
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="index.html">หน้าหลัก</a></li>
+                        <li><a href="partner/index.html" >สร้างรายได้จากการเป็นจุดรับฝากพัสดุ</a></li>                       
+                    </ul>
+                </div>               
+            </div>
+        </div>
+    </header>
+    <!--/#header-->
+
+    <section id="home-slider">
+        <div class="container">
+            <div class="row">
+                <div class="main-slider">
+                    <div class="slide-text">
+                        <h1>ไม่พลาดการรับพัสดุอีกต่อไป</h1>
+                        <p>สั่งของทางอินเทอร์เน็ตอย่างสบายใจ ไม่พลาดการรับของ ให้ของไปส่งที่ร้านค้าใกล้บ้านเราแทน.</p>
+                        <a href="map.html" class="btn btn-info btn-lg">เริ่มต้นใช้งานจุดรับฝากพัสดุ</a>                        
+                    </div>
+                    <img src="images/home/slider/idea.png" class="slider-hill" alt="slider image">
+                    <!--<img src="images/home/slider/house.png" class="slider-house" alt="slider image">
+                    <img src="images/home/slider/sun.png" class="slider-sun" alt="slider image">
+                    <img src="images/home/slider/birds1.png" class="slider-birds1" alt="slider image">
+                    <img src="images/home/slider/birds2.png" class="slider-birds2" alt="slider image">-->
+                </div>
+            </div>
+        </div>
+        <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>
+    </section>
+    <!--/#home-slider-->
+
+    <section id="services">
+        <div class="container text-center">
+            <br>
+            <h1 class="title">บริการรับฝากพัสดุให้กับคนไม่มีเวลาอยู่รับของที่บ้าน</h1>                
+            <div class="row">
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="100ms" data-wow-delay="300ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="100ms" data-wow-delay="100ms">
+                            <img src="images/home/icon1.png" alt="">
+                        </div>
+                        <h2>รับฝาก-เซ็นรับพัสดุ</h2>
+                        <p>เพียงท่านนำที่อยู่ของร้านค้าไปใช้ในการสั่งซื้อของทางเน็ต เมื่อของมาส่งทางร้านจะเซ็นรับพัสดุและเก็บไว้ให้ท่านที่ร้าน</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="100ms" data-wow-delay="600ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="100ms" data-wow-delay="100ms">
+                            <img src="images/home/icon2.png" alt="">
+                        </div>
+                        <h2>ดูแลเก็บรักษาอย่างดี</h2>
+                        <p>ร้านค้าที่รับฝากพัสดุในระบบเรา เราคัดกรองเฉพาะร้านที่มีมาตรฐาน มีกล้องวงจรปิด และมีระบบบริหารพัสดุให้ด้วย.</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="100ms" data-wow-delay="900ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="100ms" data-wow-delay="100ms">
+                            <img src="images/home/icon3.png" alt="">
+                        </div>
+                        <h2>ประกันพัสดุสูงสุด 1,500 บาท</h2>
+                        <p>พัสดุทุกชิ้นที่ฝากกับร้านค้าในระบบของ Huppy.space จะมีประกันให้สูงสุดถึง 1,500 บาท.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#services-->
+
+    <section id="action" class="responsive">
+        <div class="vertical-center">
+             <div class="container">
+                <div class="row">
+                    <div class="action take-tour">
+                        <div class="col-sm-7 wow fadeInLeft" data-wow-duration="100ms" data-wow-delay="100ms">
+                            <h1 class="title">สะดวกสบาย ประหยัดเวลา พัสดุไม่ตีกลับไปจุดนำจ่ายไปรษณีย์</h1>
+                        </div>
+                        <div class="col-sm-5 text-center wow fadeInRight" data-wow-duration="100ms" data-wow-delay="300ms">
+                            <div class="tour-button">
+                                <a href="map.html" class="btn btn-common">เริ่มต้นใช้จุดรับฝากพัสดุ</a>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </section>
+    <!--/#action-->
+
+    <section id="features">
+        <div class="container text-center">
+            <br>
+            <h1 class="title">3 ขั้นตอนการใช้งานง่ายๆ</h1>             
+            <div class="row">
+                <div class="single-features">
+                <div class="col-sm-6 wow fadeInRight" data-wow-duration="100ms" data-wow-delay="100ms">
+                        <h2>1.เข้าเว็บไซต์ค้นหาร้านค้ารับฝากพัสดุใกล้บ้าน</h2>
+                        <P>ใส่รหัสไปรษณีย์ที่ช่องค้นหาหรือใส่สถานที่ที่ท่านต้องการไปรับพัสดุ.</P>
+                    </div>
+                    <div class="col-sm-5 wow fadeInLeft" data-wow-duration="100ms" data-wow-delay="100ms">
+                        <img src="images/home/image1.png" class="img-responsive" alt="">
+                    </div>                    
+                </div>
+                <div class="single-features">
+                    <div class="col-sm-6 col-sm-offset-1 align-right wow fadeInLeft" data-wow-duration="100ms" data-wow-delay="300ms">
+                        <h2>2.นำที่อยู่ร้านค้าที่เลือกไปใช้สั่งซื้อของทางอินเทอร์เน็ต</h2>
+                        <P>เมื่อเจอร้านค้าที่ท่านต้องการให้พัสดุไปส่งและเก็บไว้รอท่านไปรับแล้ว ให้นำที่อยู่ร้านนั้นไปใช้ในการสั่งซื้อของทางอินเทอร์เน็ต.</P>
+                    </div>
+                    <div class="col-sm-5 wow fadeInRight" data-wow-duration="100ms" data-wow-delay="100ms">
+                        <img src="images/home/image2.png" class="img-responsive" alt="">
+                    </div>
+                </div>
+                <div class="single-features">
+                    <div class="col-sm-5 wow fadeInLeft" data-wow-duration="100ms" data-wow-delay="100ms">
+                        <img src="images/home/image3.png" class="img-responsive" alt="">
+                    </div>
+                    <div class="col-sm-6 wow fadeInRight" data-wow-duration="100ms" data-wow-delay="100ms">
+                        <h2>3.รอรับ SMS เมื่อพัสดุไปถึงร้านและไปรับพัสดุ</h2>
+                        <P>เมื่อพัสดุถึงร้านที่รับฝากพัสดุแล้วท่านจะได้รับ sms เพื่อไปรับพัสดุที่ท่านได้ฝากไว้และชำระค่าบริการ 15 บาทที่ร้านได้เลย.</P>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!--/#features-->
+     
+    <section id="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="clients text-center wow fadeInUp" data-wow-duration="100ms" data-wow-delay="100ms">
+                        <br>
+                        <h1 class="title">คุณอาจเคยพบเราที่</h1>
+                        <p>เราได้รับรางวัลสตาร์ทอัพมากมายจากองค์กรต่างๆที่เราภาคภูมิใจนำเสนอ<br> เพื่อแสดงให้เห็นถึงความมุ่งมั่นของพวกเราในการแก้ปัญหาด้านการจัดส่งพัสดุ</p>
+                    </div>
+                    <div class="clients-logo wow fadeIn" data-wow-duration="100ms" data-wow-delay="100ms">
+                        <div class="col-xs-3 col-sm-2">
+                            <a href="#"><img style="width:150px;height:100px;" src="https://brandinside.asia/wp-content/uploads/2016/09/True_Incube.png" class="img-responsive" alt=""></a>
+                        </div>
+                      
+                         <div class="col-xs-3 col-sm-2">
+                            <a href="#"><img style="width:150px;height:40px;margin-top:35px;" src="https://flowaccount.com/images/about/Awards%20Logo/Software-Park-Thailand-logo.jpg" class="img-responsive" alt=""></a>
+                        </div>
+                        <div class="col-xs-3 col-sm-2">
+                                <a href="#"><img style="width:150px;height:50px;margin-top:25px;" src="images/home/sp1.png" class="img-responsive" alt=""></a>
+                            </div>
+                         <div class="col-xs-3 col-sm-2">
+                            <a href="#"><img style="width:150px;height:100px;" src="https://www.glurr.com/images/topic/0353642001501681857.jpg" class="img-responsive" alt=""></a>
+                        </div>                         
+                         <div class="col-xs-3 col-sm-2">
+                            <a href="#"><img style="width:150px;height:100px;" src="https://www.matichon.co.th/wp-content/uploads/2017/07/gsb-e1500352018575.jpg" class="img-responsive" alt=""></a>
+                        </div>
+                        <div class="col-xs-3 col-sm-2">
+                            <a href="#"><img style="width:150px;height:100px;" src="images/home/sp2.png" class="img-responsive" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </section>
+    <!--/#clients-->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center bottom-separator">
+                    <img src="images/home/under.png" class="img-responsive inline" alt="">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="testimonial bottom">
+                        <h2>ทีมบริหาร</h2>
+                        <div class="media">
+                            <div class="pull-left">
+                                <a href="#"><img  style="width:81px;height:81px;" src="https://scontent.fbkk1-5.fna.fbcdn.net/v/t1.0-9/14484812_1222413431142936_4729238163301844154_n.jpg?oh=784bb119e9e445c5bba73637be0ae8c9&oe=5A8180D6" alt=""></a>
+                            </div>
+                            <div class="media-body">
+                                CEO/CTO.
+                                <h3><a href="#">- จตุพร หงษ์เวียง</a></h3>
+                            </div>
+                         </div>
+                        <div class="media">
+                            <div class="pull-left">
+                                <a href="#"><img style="width:81px;height:81px;" src="https://scontent.fbkk1-5.fna.fbcdn.net/v/t1.0-1/18664204_10209146520126741_9165245464510929475_n.jpg?oh=5a3f121b33dcc07f5060852b83792a66&oe=5A4F7BC5" alt=""></a>
+                            </div>
+                            <div class="media-body">
+                                CMO/CDO.
+                                <h3><a href="">- สุทธิชัย ยี่สุ่นแซม</a></h3>
+                            </div>
+                        </div>   
+                    </div> 
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="contact-info bottom">
+                        <h2>ติดต่อ</h2>
+                        <address>
+                        E-mail: <a href="mailto:someone@example.com">jatupon.h@outlook.com</a> <br> 
+                        Phone: 061 775 8056 <br> 
+                        LineId: h.jatupon
+                        </address>
+
+                        <h2>ที่อยู่</h2>
+                        <address>
+                        ชั้น8 ห้องชมรมผู้ประกอบการนักศึกษา, <br> 
+                        อาคารสำนักงานวิจัยวิทยาศาสตร์, <br> 
+                        มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ
+                        </address>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="contact-form bottom">
+                        <h2>ส่งข้อความหาเรา</h2>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <input id="ct-name" type="text" name="name" class="form-control" required="required" placeholder="ชื่อ">
+                            </div>
+                            <div class="form-group">
+                                <input id="ct-email" type="email" name="email" class="form-control" required="required" placeholder="อีเมล">
+                            </div>
+                            <div class="form-group">
+                                <textarea id="ct-message" name="message" id="message" required="required" class="form-control" rows="8" placeholder="ข้อความ"></textarea>
+                            </div>                        
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-submit" value="ส่ง">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="copyright-text text-center">
+                        <p>&copy; Hub space Co.,Ltd. 2017. All Rights Reserved.</p>
+                        <p>Designed by <a target="_blank" href="https://www.themeum.com">Themeum</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/#footer-->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lightbox.min.js"></script>
+    <script type="text/javascript" src="js/wow.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>   
+    <script>
+    var contact = firebase.database().ref('contact/');
+    $('#contact-form').submit(function (ev) {
+        ev.preventDefault(); // to stop the form from submitting
+        var ct_name = $('#ct-name').val();
+        var ct_email = $('#ct-email').val();
+        var ct_message = $('#ct-message').val();
+
+        var new_contact = contact.push();
+        new_contact.set({
+            name: ct_name,
+            email: ct_email,
+            message: ct_message,
+        });
+        alert("ทางทีมงานได้รับข้อความแล้วครับ จะติดต่อกลับภายใน 24 ชม.");
+        window.location = "index.html";
+    });
+    </script>
+</body>
+</html>
