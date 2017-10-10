@@ -7,131 +7,171 @@
   <link rel='shortcut icon' type='image/x-icon' href='assets/images/logo.png' />
   <link rel="stylesheet" href="css/googlemap.css">
   <link rel="stylesheet" href="css/account.css">
+  <link rel="stylesheet" href="css/listing.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
 </head>
-<body>
-<div class="ui pointing menu big">
-  <div class="item">
-    <img src="assets/images/logo.png">
-  </div>
-  <div class="item">
-    <div class="ui action input">
-      <input type="text" id="pac-input" placeholder="สถานที่..">
-      <button id="pac-button" class="ui button">ค้นหาจุดรับพัสดุ</button>
+<body style="min-width:1280px;">
+  <div class="ui pointing menu big">
+    <div class="item">
+      <img src="assets/images/logo.png">
     </div>
-  </div>
-  <div class="right menu">
-    <a class="item" onclick="openModalSupport()">
-      ความช่วยเหลือ
-    </a>
-    <div class="item" id="account_ui"></div>
-  </div>
-</div>
-<div class="ui grid">
-  <div class="four wide column">
-    <div class="ui vertical fluid tabular menu">
-      <a class="item">
-        <!-- LIST -->
-        <div class="ui middle large aligned divided list">
-          <div class="item">
-            <div class="right floated content">
-              <div class="ui button">Add</div>
-            </div>
-            <img class="ui avatar image" src="https://www.gv.com/img/team-large/john-lyman.jpg">
-            <div class="content">
-              จตุพร หงษ์เวียง
-            </div>
-          </div>
-          <div class="item">
-            <div class="right floated content">
-              <div class="ui button">Add</div>
-            </div>
-            <img class="ui avatar image" src="https://johnemmons.com/images/john_emmons_headshot.jpg">
-            <div class="content">
-              สุทธิชัย ยี่สุ่นแซม
-            </div>
-          </div>
-          <div class="item">
-            <div class="right floated content">
-              <div class="ui button">Add</div>
-            </div>
-            <img class="ui avatar image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Anna_Kendrick_March_22%2C_2014_%28cropped%29.jpg/1200px-Anna_Kendrick_March_22%2C_2014_%28cropped%29.jpg">
-            <div class="content">
-              วริสรา ธรรมวิรัช
-            </div>
-          </div>
-          <div class="item">
-            <div class="right floated content">
-              <div class="ui button">Add</div>
-            </div>
-            <img class="ui avatar image" src="https://pbs.twimg.com/profile_images/733737022377103360/1L85_aYM.jpg">
-            <div class="content">
-              นายเอ บี
-            </div>
-          </div>
-        </div>
-        <!-- END LIST -->
+    <div class="item">
+      <div class="ui action input">
+        <input type="text" id="pac-input" placeholder="สถานที่..">
+        <button id="pac-button" class="ui button">ค้นหาจุดรับพัสดุ</button>
+      </div>
+    </div>
+    <div class="right menu">
+      <a class="item" onclick="openModalSupport()">
+        ความช่วยเหลือ
       </a>
+      <div class="item" id="account_ui"></div>
     </div>
   </div>
-  <div class="twelve wide stretched column">
-    <div class="ui segment">
-      <div id="map"></div>
+  <div class="ui grid">
+    <div class="five wide column">
+      <div class="ui vertical fluid tabular menu">
+        <a class="item">
+          <!-- LIST -->
+          <div class="ui yellow message listingBox">
+            <i class="marker icon"></i>
+            จุดรับฝากพัสดุที่ใกล้ที่สุด 10 อันดับ.
+            <div class="ui middle aligned divided list large">
+              <div class="item">
+                <img width="70" height="70" class="ui image" src="http://www.manager.co.th/asp-bin/Image.aspx?ID=4193733">
+                <div class="content">
+                  <div class="header">Top daily ท่าอิฐ</div>
+                  ระยะห่าง 0.3 กม.
+                </div>
+              </div>
+              <div class="item">
+                <img width="70" height="70" class="ui image" src="http://www.parttimejobth.com/wp-content/uploads/2014/02/%E0%B8%87%E0%B8%B2%E0%B8%99-Part-time-Tesco-Lotus-Express-%E0%B9%82%E0%B8%A5%E0%B8%95%E0%B8%B1%E0%B8%AA%E0%B9%80%E0%B8%AD%E0%B9%87%E0%B8%81%E0%B9%80%E0%B8%9E%E0%B8%A5%E0%B8%AA%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%AA%E0%B8%A1%E0%B8%B1%E0%B8%84%E0%B8%A3%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%94%E0%B9%88%E0%B8%A7%E0%B8%99-300x199.jpg">
+                <div class="content">
+                  <div class="header">Lotus Express ท่าอิฐ</div>
+                  ระยะห่าง 2 กม.
+                </div>
+              </div>
+              <div class="item">
+                <img width="70" height="70" class="ui image" src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Big_C_Logo.svg/710px-Big_C_Logo.svg.png">
+                <div class="content">
+                  <div class="header">BigC mini ท่าอิฐ</div>
+                  ระยะห่าง 4 กม.
+                </div>
+              </div>
+              <div class="item">
+                <img width="70" height="70" class="ui image" src="http://3.bp.blogspot.com/-RZk9HEXp3Bw/VbZfLmvkc4I/AAAAAAAAHAM/KwuHT8hhxHI/s1600/%25E0%25B8%25AB%25E0%25B9%2589%25E0%25B8%25B2%25E0%25B8%2587%25E0%25B9%2581%25E0%25B8%25A7%25E0%25B9%2588%25E0%25B8%2599%25E0%25B8%2597%25E0%25B9%2587%25E0%25B8%25AD%25E0%25B8%259B%25E0%25B9%2580%25E0%25B8%2588%25E0%25B8%25A3%25E0%25B8%25B4%25E0%25B8%258D.JPG">
+                <div class="content">
+                  <div class="header">ร้านแว่นท็อปเจริญ</div>
+                  ระยะห่าง 7 กม.
+                </div>
+              </div>
+              <div class="item">
+                <img width="70" height="70" class="ui image" src="http://www.manager.co.th/asp-bin/Image.aspx?ID=4193733">
+                <div class="content">
+                  <div class="header">Top daily ท่าอิฐ</div>
+                  ระยะห่าง 0.3 กม.
+                </div>
+              </div>
+              <div class="item">
+                <img width="70" height="70" class="ui image" src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Big_C_Logo.svg/710px-Big_C_Logo.svg.png">
+                <div class="content">
+                  <div class="header">BigC mini ท่าอิฐ</div>
+                  ระยะห่าง 4 กม.
+                </div>
+              </div>
+              <div class="item">
+                <img width="70" height="70" class="ui image" src="http://www.manager.co.th/asp-bin/Image.aspx?ID=4193733">
+                <div class="content">
+                  <div class="header">Top daily ท่าอิฐ</div>
+                  ระยะห่าง 0.3 กม.
+                </div>
+              </div>
+              <div class="item">
+                <img width="70" height="70" class="ui image" src="http://www.parttimejobth.com/wp-content/uploads/2014/02/%E0%B8%87%E0%B8%B2%E0%B8%99-Part-time-Tesco-Lotus-Express-%E0%B9%82%E0%B8%A5%E0%B8%95%E0%B8%B1%E0%B8%AA%E0%B9%80%E0%B8%AD%E0%B9%87%E0%B8%81%E0%B9%80%E0%B8%9E%E0%B8%A5%E0%B8%AA%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%AA%E0%B8%A1%E0%B8%B1%E0%B8%84%E0%B8%A3%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%94%E0%B9%88%E0%B8%A7%E0%B8%99-300x199.jpg">
+                <div class="content">
+                  <div class="header">Lotus Express ท่าอิฐ</div>
+                  ระยะห่าง 2 กม.
+                </div>
+              </div>
+              <div class="item">
+                <img width="70" height="70" class="ui image" src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Big_C_Logo.svg/710px-Big_C_Logo.svg.png">
+                <div class="content">
+                  <div class="header">BigC mini ท่าอิฐ</div>
+                  ระยะห่าง 4 กม.
+                </div>
+              </div>
+              <div class="item">
+                <img width="70" height="70" class="ui image" src="http://www.parttimejobth.com/wp-content/uploads/2014/02/%E0%B8%87%E0%B8%B2%E0%B8%99-Part-time-Tesco-Lotus-Express-%E0%B9%82%E0%B8%A5%E0%B8%95%E0%B8%B1%E0%B8%AA%E0%B9%80%E0%B8%AD%E0%B9%87%E0%B8%81%E0%B9%80%E0%B8%9E%E0%B8%A5%E0%B8%AA%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%AA%E0%B8%A1%E0%B8%B1%E0%B8%84%E0%B8%A3%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%94%E0%B9%88%E0%B8%A7%E0%B8%99-300x199.jpg">
+                <div class="content">
+                  <div class="header">Lotus Express ท่าอิฐ</div>
+                  ระยะห่าง 2 กม.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END LIST -->
+        </a>
+      </div>
+    </div>
+    <div class="eleven wide stretched column">
+      <div class="ui segment">
+        <div id="map"></div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="ui grid">
-  <div class="one wide column">
+  <div class="ui grid">
+    <div class="one wide column">
 
-  </div>
-  <div class="fifteen wide stretched column">
-    <div class="ui list">
-      <div class="item">
-        <a class="header">บริษัท Hub space Co.,Ltd.</a>
-        <div class="description">
-           สำนักงานใหญ่ตั้งอยู่ 90/977 หมู่ 5 ท่าอิฐ ปากเกร็ด นนทบุรี 11120, <a>โทร. 061-775-8056</a>
+    </div>
+    <div class="fifteen wide stretched column">
+      <div class="ui list">
+        <div class="item">
+          <a class="header">บริษัท Hub space Co.,Ltd.</a>
+          <div class="description">
+            สำนักงานใหญ่ตั้งอยู่ 90/977 หมู่ 5 ท่าอิฐ ปากเกร็ด นนทบุรี 11120, <a>โทร. 061-775-8056</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Customer Support Modal -->
-<div class="ui support modal">
-  <i class="close icon"></i>
-  <div class="header">
-    ฝ่ายบริการลูกค้า
-  </div>
+  <!-- Customer Support Modal -->
+  <div class="ui support modal">
+    <i class="close icon"></i>
+    <div class="header">
+      ฝ่ายบริการลูกค้า
+    </div>
 
     <div class="content">
       <div class="ui form">
         <form id="support_form">
-        <h4 class="ui dividing header">ส่งข้อความถึงฝ่ายบริการลูกค้า</h4>
-        <div class="field">
-          <label>ข้อความ</label>
-          <textarea id="support_message" required></textarea>
-        </div>
-        <div class="field">
-          <label>เบอร์โทรติดต่อกลับ</label>
-          <input type="number" id="support_phonenumber" required>
+          <h4 class="ui dividing header">ส่งข้อความถึงฝ่ายบริการลูกค้า</h4>
+          <div class="field">
+            <label>ข้อความ</label>
+            <textarea id="support_message" required></textarea>
+          </div>
+          <div class="field">
+            <label>เบอร์โทรติดต่อกลับ</label>
+            <input type="number" id="support_phonenumber" required>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="actions">
-      <button class="ui button" onclick="cancelSupportModal()">ยกเลิก</button>
-      <input type="submit"  class="ui primary button" placeholder="ส่งข้อความ">
-    </div>
-  </form>
-</div>
-<!-- End Customer Support Modal -->
+      <div class="actions">
+        <button class="ui button" onclick="cancelSupportModal()">ยกเลิก</button>
+        <input type="submit"  class="ui primary button" placeholder="ส่งข้อความ">
+      </div>
+    </form>
+  </div>
+  <!-- End Customer Support Modal -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
-<script src="javascript/account.js"></script>
-<script src="javascript/googlemap.js"></script>
-<script src="javascript/support.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYJ-eeH6PQnGxAoed1HuYaf2D3NXIAqqk&libraries=places&callback=initAutocomplete" async defer></script>
-<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+  <script src="javascript/account.js"></script>
+  <script src="javascript/googlemap.js"></script>
+  <script src="javascript/support.js"></script>
+  <script src="javascript/listing.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYJ-eeH6PQnGxAoed1HuYaf2D3NXIAqqk&libraries=places&callback=initAutocomplete" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
 </body>
 </html>
