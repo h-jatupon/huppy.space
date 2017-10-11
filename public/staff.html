@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>staff</title>
+  <link rel='shortcut icon' type='image/x-icon' href='assets/images/logo.png' />
+</head>
+<body>
+  <!-- FORM -->
+  <form id="hub">
+    <label>โลโก้</label><br>
+    <input type="file" id="logo" required>*<br><br>
+    <input type="text" id="name" placeholder="ชื่อแบรนด์" required>*<br>
+    <input type="text" id="phone" placeholder="เบอร์โทรสาขา"><br><br>
+
+    <label>ประเภทจุดรับ</label>
+    <select id="category" required>
+      <option value="ร้านสะดวกซื้อ">ร้านสะดวกซื้อ</option>
+      <option value="ร้านยา">ร้านยา</option>
+      <option value="ร้านแว่น">ร้านแว่น</option>
+      <option value="ร้านอาหาร">ร้านอาหาร</option>
+      <option value="ปั้มน้ำมัน">ปั้มน้ำมัน</option>
+      <option value="ห้างสรรพสินค้า">ห้างสรรพสินค้า</option>
+      <option value="ไปรษณีย์เอกชน">ไปรษณีย์เอกชน</option>
+    </select>*<br><br>
+
+    <input type="text" id="number" placeholder="เลขที่" required>*<br>
+    <input type="text" id="villageno" placeholder="หมู่" required>*<br>
+    <input type="text" id="lane" placeholder="ซอย"><br>
+    <input type="text" id="street" placeholder="ถนน"><br>
+    <input type="text" id="subdistrict" placeholder="ตำบล" required>*<br>
+    <input type="text" id="district" placeholder="อำเภอ" required>*<br>
+    <input type="text" id="province" placeholder="จังหวัด" required>*<br>
+    <input type="text" id="postcode" placeholder="รหัสไปรษณีย์" required>*<br>
+    <input type="text"  id="lat" placeholder="lat" required>*<br>
+    <input type="text"  id="lng" placeholder="lng" required>*<br><br>
+    <label>รูปร้าน</label><br>
+    <input type="file" id="picture1" required>*<br>
+    <input type="file" id="picture2" required>*<br>
+    <input type="file" id="picture3" required>*<br>
+    <input type="file" id="picture4" required>*<br><br><br>
+    <input type="submit" id="uploadBTN" value="อัพโหลดจุดรับพัสดุ">
+  </form>
+  <!-- END FORM -->
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+  <script src="javascript/account.js"></script>
+  <script>
+  // STAFF ONLY
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      if(user != null){
+        if(user.email != "jatupon.h@outlook.com"){
+          window.location = "index.html";
+        }
+      }
+    }else{
+      window.location = "index.html";
+    }
+  });
+  //-----------------------------------------------------
+
+  var count = 0;
+  var pictures = ["logo" , "pictures1", "pictures2", "pictures3" , "pictures4"];
+
+  $("#hub").submit(function (e) {
+    e.preventDefault();
+    document.getElementById("uploadBTN").disabled = true;
+
+    hubUpload('logo');
+    hubUpload('picture1');
+    hubUpload('picture2');
+    hubUpload('picture3');
+    hubUpload('picture4');
+  });
+
+
+  function hubUpload(id){
+    var file = document.getElementById(id).files[0];
+    // Points to the root reference
+    var storageRef = firebase.storage().ref();
+    // Points to 'images'
+    var imagesRef = storageRef.child('images');
+    // Points to 'images/space.jpg'
+    // Note that you can use variables to create child values
+    // filename will random name to advoid existing name.
+    var fileName = Math.random().toString(36).substring(7) + file.name;
+    var spaceRef = imagesRef.child(fileName);
+    // File path is 'images/space.jpg'
+    var path = spaceRef.fullPath
+    // File name is 'space.jpg'
+    var name = spaceRef.name
+    // Points to 'images'
+    var imagesRef = spaceRef.parent;
+    // Create the file metadata
+    var metadata = {
+      contentType: 'image/jpeg'
+    };
+    // Upload file and metadata to the object 'images/mountains.jpg'
+    var uploadTask = storageRef.child('Hub/' + fileName).put(file, metadata);
+    // Listen for state changes, errors, and completion of the upload.
+    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+    function (snapshot) {
+      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log('Upload is ' + progress + '% done');
+      switch (snapshot.state) {
+        case firebase.storage.TaskState.PAUSED: // or 'paused'
+        console.log('Upload is paused');
+        break;
+        case firebase.storage.TaskState.RUNNING: // or 'running'
+        console.log('Upload is running');
+        break;
+      }
+    }, function (error) {
+      // A full list of error codes is available at
+      // https://firebase.google.com/docs/storage/web/handle-errors
+      document.getElementById("uploadBTN").disabled = false;
+      switch (error.code) {
+        case 'storage/unauthorized':
+        // User doesn't have permission to access the object
+        console.log("permission denied.");
+        break;
+        case 'storage/canceled':
+        // User canceled the upload
+        console.log("user canceled the upload.");
+        break;
+        case 'storage/unknown':
+        // Unknown error occurred, inspect error.serverResponse
+        console.log("Unknown error occurred.");
+        break;
+      }
+    }, function() {
+        // Upload completed successfully, now we can get the download URL
+        pictures[count] = uploadTask.snapshot.downloadURL;
+        if(count == 4) //loop 5 time, 0 - 4
+        {
+          var name = $('#name').val();
+          var phone = $('#phone').val();
+          var category = $('#category').val();
+          var number = $('#number').val();
+          var villageno = $('#villageno').val();
+          var lane = $('#lane').val();
+          var street = $('#street').val();
+          var subdistrict = $('#subdistrict').val();
+          var district = $('#district').val();
+          var province = $('#province').val();
+          var postcode = $('#postcode').val();
+          var lat = $('#lat').val();
+          var lng = $('#lng').val();
+
+          var branchId = Math.random().toString(36).substring(7);
+          var status = "1";
+
+          var hubRef = firebase.database().ref('Hub/');
+          var newPostRef = hubRef.push();
+          newPostRef.set({
+            name: name,
+            phone: phone,
+            category: category,
+            number: number,
+            villageno: villageno,
+            lane: lane,
+            street: street,
+            subdistrict: subdistrict,
+            district: district,
+            province: province,
+            postcode: postcode,
+            lat: lat,
+            lng: lng,
+            logo: pictures[0],
+            picture1: pictures[1],
+            picture2: pictures[2],
+            picture3: pictures[3],
+            picture4: pictures[4],
+            branchId: branchId,
+            status: status
+          }).then(function(result) {
+            alert("อัพโหลดจุดรับพัสดุเรียบร้อยแล้วครับ.");
+            window.location = "";
+          }).catch(function(error) {
+            // Handle Errors here.
+            document.getElementById("uploadBTN").disabled = false;
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(errorCode);
+            console.log(errorMessage);
+          });
+          count = 0;
+        }else{
+          count += 1;
+        }
+    });
+  }
+  </script>
+</body>
+</html>
