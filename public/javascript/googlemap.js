@@ -40,6 +40,12 @@ function initAutocomplete() {
       $("#sideItem").html(``);
       for(i=0;i<SORTED_DATA.length;i++)
       {
+        if(SORTED_DATA[i][1].name.length > 20)
+        {
+          var newlimitname = SORTED_DATA[i][1].name.substring(0, 18) + "...";
+        }else{
+          var newlimitname = SORTED_DATA[i][1].name;
+        }
         if(i >= 9)
         {
           break;
@@ -49,7 +55,7 @@ function initAutocomplete() {
             <div class="item" onclick="bousetolatlng(${SORTED_DATA[i][3]})">
             <img width="70" height="70" class="ui image" src="${SORTED_DATA[i][1].logo}">
             <div class="content">
-            <div class="header">${SORTED_DATA[i][1].name}</div>
+            <div class="header">${newlimitname}</div>
             ${distanceFloat} กม.
             </div>
             </div>
@@ -171,9 +177,9 @@ function initAutocomplete() {
               </div>
               </div>
               <div class="nine wide column">
-              <h1 class="ui header">
+              <h2 class="ui header">
                 ${DATA[i][1].name}
-              </h1>
+              </h2>
               ประเภทร้าน: ${DATA[i][1].category}
               <div class="ui message">
                 <div class="header">
@@ -193,10 +199,15 @@ function initAutocomplete() {
                   </button>
                 </div>
 
-                <div class="ui success icon message">
-                  <i class="check icon"></i>
+                <div class="ui success message">
                   <div class="header">
-                    จุดรับฝากพัสดุนี้ได้รับการตรวจสอบจากบริษัทแล้ว
+                    ขั้นตอนการใช้งานง่ายๆ
+                  </div>
+                  <div class="ui ordered list">
+                    <a class="item">คัดลอกที่อยู่จุดรับฝากพัสดุ</a>
+                    <a class="item">ใช้ที่อยู่นี้สั่งซื้อสินค้าทางอินเทอร์เน็ต</a>
+                    <a class="item">เมื่อพัสดุมาถึง ท่านจะได้รับโทรศัพท์จากเจ้าหน้าที่ให้ไปรับพัสดุ</a>
+                    <a class="item">ชำระค่าบริการ 15 บาท/พัสดุที่จุดรับนั้น</a>
                   </div>
                 </div>
 
@@ -209,11 +220,18 @@ function initAutocomplete() {
             var distanceFloat = parseFloat(DATA[i][2]).toFixed(2);
             DATA[i][3] = i;
 
+            if(DATA[i][1].name.length > 20)
+            {
+              var newlimitname = DATA[i][1].name.substring(0, 18) + "...";
+            }else{
+              var newlimitname = DATA[i][1].name;
+            }
+
             $("#sideItem").append(`
               <div class="item" onclick="bousetolatlng(${DATA[i][3]})">
               <img width="70" height="70" class="ui image" src="${DATA[i][1].logo}">
               <div class="content">
-              <div class="header">${DATA[i][1].name}</div>
+              <div class="header">${newlimitname}</div>
               ${distanceFloat} กม.
               </div>
               </div>

@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "hubspace-01"
+    "default": "hubspace-01",
+    "staging": "hubspace-01"
   }
 }
