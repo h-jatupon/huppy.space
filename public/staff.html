@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>staff</title>
   <link rel='shortcut icon' type='image/x-icon' href='assets/images/logo.png' />
+
 </head>
 <body>
   <!-- FORM -->
@@ -14,16 +15,7 @@
     <input type="text" id="name" placeholder="ชื่อแบรนด์" required>*<br>
     <input type="text" id="phone" placeholder="เบอร์โทรสาขา"><br><br>
 
-    <label>ประเภทจุดรับ</label>
-    <select id="category" required>
-      <option value="ร้านสะดวกซื้อ">ร้านสะดวกซื้อ</option>
-      <option value="ร้านยา">ร้านยา</option>
-      <option value="ร้านแว่น">ร้านแว่น</option>
-      <option value="ร้านอาหาร">ร้านอาหาร</option>
-      <option value="ปั้มน้ำมัน">ปั้มน้ำมัน</option>
-      <option value="ห้างสรรพสินค้า">ห้างสรรพสินค้า</option>
-      <option value="ไปรษณีย์เอกชน">ไปรษณีย์เอกชน</option>
-    </select>*<br><br>
+    <input type="hidden" id="category" value="0">
 
     <input type="text" id="number" placeholder="เลขที่" required>*<br>
     <input type="text" id="villageno" placeholder="หมู่" required>*<br>
@@ -39,8 +31,57 @@
     <input type="file" id="picture1" required>*<br>
     <input type="file" id="picture2" required>*<br>
     <input type="file" id="picture3" required>*<br>
-    <input type="file" id="picture4" required>*<br><br><br>
-    <input type="submit" id="uploadBTN" value="อัพโหลดจุดรับพัสดุ">
+    <input type="file" id="picture4" required>*<br><br>
+
+    <label>บริการเปิด</label><br>
+    <div class="ui checkbox">
+      <input type="checkbox" id="service1" value="บริการรับฝากพัสดุ" required>
+      <label>บริการส่งพัสดุ</label>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" id="service2" value="บริการรับส่งพัสดุ">
+      <label>บริการรับฝากพัสดุ</label>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" id="service3" value="บริการชำระค่าน้ำ ค่าไฟ สาธารณูปโภค">
+      <label>บริการชำระค่าน้ำ ค่าไฟ สาธารณูปโภค</label>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" id="service4" value="จุดเติมเงินออนไลน์">
+      <label>จุดเติมเงินออนไลน์</label>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" id="service5" value="บริการทางธนาคาร">
+      <label>บริการทางธนาคาร</label>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" id="service6" value="จองตั๋วเดินทางออนไลน์">
+      <label>จองตั๋วเดินทางออนไลน์</label>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" id="service7" value="ถ่ายเอกสาร">
+      <label>ถ่ายเอกสาร</label>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" id="service8" value="บริการส่งพัสดุ">
+      <label>บริการส่งพัสดุ</label>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" id="service9" value="บริการถ่ายรูปด่วน">
+      <label>บริการถ่ายรูปด่วน</label>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" id="service10" value="จุดรับสั่งสินค้า">
+      <label>จุดรับสั่งสินค้า</label>
+    </div>
+    <div class="ui checkbox">
+      <input type="checkbox" id="service11" value="ศูนย์ประกันวินาศภัยทุกประเภท">
+      <label>ศูนย์ประกันวินาศภัยทุกประเภท</label>
+    </div>
+
+    <br>
+
+    <input type="submit" id="uploadBTN" value="อัพโหลดจุดรับพัสดุ" style="width:150px;height:50px;">
   </form>
   <!-- END FORM -->
 
@@ -53,7 +94,8 @@
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       if(user != null){
-        if(user.email != "jatupon.h@outlook.com"){
+        if(user.email == "jatupon.h@outlook.com" || user.email == "sutichaiyun@gmail.com"){
+        }else{
           window.location = "index.html";
         }
       }
@@ -153,6 +195,17 @@
           var lat = $('#lat').val();
           var lng = $('#lng').val();
 
+
+          var services = [];
+          for(a=1;a<=11;a++)
+          {
+            if(document.getElementById("service"+a).checked) {
+                services[a] = $('#service'+a).val();
+            }else{
+              services[a] = "";
+            }
+          }
+
           var branchId = Math.random().toString(36).substring(7);
           var status = "1";
 
@@ -178,7 +231,18 @@
             picture3: pictures[3],
             picture4: pictures[4],
             branchId: branchId,
-            status: status
+            status: status,
+            service1: services[1],
+            service2: services[2],
+            service3: services[3],
+            service4: services[4],
+            service5: services[5],
+            service6: services[6],
+            service7: services[7],
+            service8: services[8],
+            service9: services[9],
+            service10: services[10],
+            service11: services[11]
           }).then(function(result) {
             alert("อัพโหลดจุดรับพัสดุเรียบร้อยแล้วครับ.");
             window.location = "";

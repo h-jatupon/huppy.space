@@ -18,7 +18,7 @@
     <div class="item">
       <div class="ui action input">
         <input type="text" id="pac-input" placeholder="สถานที่..">
-        <button id="pac-button" class="ui button">ค้นหาจุดรับพัสดุ</button>
+        <button id="pac-button" class="ui button">ค้นหาจุดบริการไปรษณีย์</button>
       </div>
     </div>
     <div class="right menu">
@@ -29,13 +29,13 @@
     </div>
   </div>
   <div class="ui grid">
-    <div class="five wide column">
+    <div class="six wide column">
       <div class="ui vertical fluid tabular menu">
         <a class="item">
           <!-- LIST -->
           <div class="ui yellow message listingBox">
             <i class="marker icon"></i>
-            จุดรับฝากพัสดุที่ใกล้ที่สุด 10 อันดับ.
+            บริการไปรษณีย์ที่ใกล้ที่สุด 10 อันดับ.
             <div class="ui middle aligned divided list large" id="sideItem">
 
             </div>
@@ -44,7 +44,7 @@
         </a>
       </div>
     </div>
-    <div class="eleven wide stretched column">
+    <div class="ten wide stretched column">
       <div class="ui segment">
         <div id="map"></div>
       </div>
@@ -103,5 +103,11 @@
 <script src="javascript/support.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYJ-eeH6PQnGxAoed1HuYaf2D3NXIAqqk&libraries=places&callback=initAutocomplete" async defer></script>
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
+<script>
+  //If user use mobile device.
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    window.location = "mobile/index.html"
+  }
+</script>
 </body>
 </html>
