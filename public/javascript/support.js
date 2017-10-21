@@ -15,7 +15,7 @@ $("#support_form").submit(function (e) {
   var message = $('#support_message').val();
   var phoneNumber = $('#support_phonenumber').val();
 
-  var supportRef = firebase.database().ref('Support/');
+  var supportRef = firebase.database().ref('CustomerSupport/');
   var newPostRef = supportRef.push();
   newPostRef.set({
     phoneNumber: phoneNumber,

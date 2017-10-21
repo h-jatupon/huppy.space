@@ -18,10 +18,13 @@
     <div class="item">
       <div class="ui action input">
         <input type="text" id="pac-input" placeholder="สถานที่..">
-        <button id="pac-button" class="ui button">ค้นหาจุดบริการไปรษณีย์</button>
+        <button id="pac-button" class="ui button">ค้นหาจุดรับฝากพัสดุ</button>
       </div>
     </div>
     <div class="right menu">
+      <a class="item" onclick="hubSignIn()">
+        สำหรับจุดรับฝากพัสดุ
+      </a>
       <a class="item" onclick="openModalSupport()">
         ความช่วยเหลือ
       </a>
@@ -35,7 +38,7 @@
           <!-- LIST -->
           <div class="ui yellow message listingBox">
             <i class="marker icon"></i>
-            บริการไปรษณีย์ที่ใกล้ที่สุด 10 อันดับ.
+            จุดรับฝากพัสดุใกล้ที่สุด 10 อันดับ.
             <div class="ui middle aligned divided list large" id="sideItem">
 
             </div>
@@ -107,6 +110,11 @@
   //If user use mobile device.
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     window.location = "mobile/index.html"
+  }
+
+  function hubSignIn()
+  {
+    window.location = "partner/index.html";
   }
 </script>
 </body>

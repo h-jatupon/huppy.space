@@ -283,7 +283,7 @@ function initAutocomplete() {
 
 
   function listingDetail(name,logo,picture1,address,promotionHtml,services){
-    $(".placeListing").css("height", "80vh");
+    $(".placeListing").css("height", "70vh");
     $("#listing").css("display", "none");
     $("#listingDetail").css("display", "block");
     $("#HeaderListing").css("display", "none")
@@ -291,43 +291,39 @@ function initAutocomplete() {
     $('#listingDetail').html(
       `
       <a class="button is-black" onclick="back()">ย้อนกลับ</a><br><br>
-      <div class="card">
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              <figure class="image is-48x48">
-                <img src="${logo}" alt="${name}">
-              </figure>
-            </div>
-            <div class="media-content">
-              <p class="title is-4">${name}</p>
-            </div>
-          </div>
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="${picture1}" alt="${name}">
-            </figure>
-          </div>
-          <br>
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <img src="${logo}" alt="${name}">
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4">${name}</p>
+        </div>
+      </div>
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="${picture1}" alt="${name}">
+        </figure>
+      </div>
+      <br>
 
-          <div class="content">
-            <p>
-              <strong>ที่อยู่</strong>
-              <br>
-            ${address}
-            </p>
-            <br>
-            <strong>บริการที่เปิด</strong>
-            <p>
-              ${services}
-            </p>
-            <br>
-            <strong>โปรโมชั่น</strong>
-            <p>
-              ${promotionHtml}
-            </p>
-            </div>
-          </div>
+      <div class="content">
+        <p>
+          <strong>ที่อยู่</strong>
+          <br>
+        ${address}
+        </p>
+        <br>
+        <strong>บริการที่เปิด</strong>
+        <p>
+          ${services}
+        </p>
+        <br>
+        <strong>โปรโมชั่น</strong>
+        <p>
+          ${promotionHtml}
+        </p>
         </div>
       `);
   }

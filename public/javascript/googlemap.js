@@ -8,7 +8,6 @@
 var map;
 var markers = [];
 var infowindows = [];
-var lengthNumber = 10;
 function initAutocomplete() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: new google.maps.LatLng(13.880788, 100.467057),
@@ -41,27 +40,9 @@ function initAutocomplete() {
       $("#sideItem").html(``);
       for(i=0;i<SORTED_DATA.length;i++)
       {
-
-        var promotionTag = "";
-        if(SORTED_DATA[i][1].promotion != "")
+        if(SORTED_DATA[i][1].name.length > 23)
         {
-          lengthNumber = 8;
-          promotionTag = `<div class="right floated content">
-          <div class="ui tag orange  labels">
-          <br>
-            <a class="ui label">
-              มีโปรโมชั่น
-            </a>
-          </div>
-          </div>`;
-        }else{
-          lengthNumber = 21;
-        }
-
-
-        if(SORTED_DATA[i][1].name.length > lengthNumber)
-        {
-          var newlimitname = DATA[i][1].name.substring(0, lengthNumber) + "<br>" + DATA[i][1].name.substring(lengthNumber);
+          var newlimitname = SORTED_DATA[i][1].name.substring(0, 23) + "<br>" + SORTED_DATA[i][1].name.substring(23);
         }else{
           var newlimitname = SORTED_DATA[i][1].name;
         }
@@ -72,7 +53,6 @@ function initAutocomplete() {
           var distanceFloat = parseFloat(SORTED_DATA[i][2]).toFixed(2);
           $("#sideItem").append(`
             <div class="item" onclick="bousetolatlng(${SORTED_DATA[i][3]})">
-            ${promotionTag}
             <img width="70" height="70" class="ui image" src="${SORTED_DATA[i][1].logo}">
             <div class="content">
             <div class="header">${newlimitname}</div>
@@ -95,39 +75,6 @@ function initAutocomplete() {
     }).then(function(result) {
       $("#sideItem").html(``);
       for (i = 0; i < DATA.length; i++) {
-        var services = [];
-
-        services[1] = DATA[i][1].service1;
-        services[2] = DATA[i][1].service2;
-        services[3] = DATA[i][1].service3;
-        services[4] = DATA[i][1].service4;
-        services[5] = DATA[i][1].service5;
-        services[6] = DATA[i][1].service6;
-        services[7] = DATA[i][1].service7;
-        services[8] = DATA[i][1].service8;
-        services[9] = DATA[i][1].service9;
-        services[10] = DATA[i][1].service10;
-        services[11] = DATA[i][1].service11;
-
-
-        for(j=1;j<=10;j++)
-        {
-          if(services[j] != "")
-          {
-            services[j]  = (`<a class="item"><i class="right triangle icon"></i>${services[j]}</a>`);
-          }
-        }
-        services = services.join("");
-
-
-        if(DATA[i][1].promotion != "")
-        {
-          promotionDetail = DATA[i][1].promotion;
-        }else{
-          promotionDetail = `ร้านนี้ยังไม่มีโปรโมชั่น`;
-        }
-
-
         if(i >= 9)
         {
           break;
@@ -233,7 +180,7 @@ function initAutocomplete() {
               <h2 class="ui header">
                 ${DATA[i][1].name}
               </h2>
-              <!-- ประเภทร้าน: ${DATA[i][1].category} -->
+              ประเภทร้าน: ${DATA[i][1].category}
               <div class="ui message">
                 <div class="header">
                   ที่อยู่
@@ -245,29 +192,22 @@ function initAutocomplete() {
                   ตำบล ${DATA[i][1].subdistrict}
                   อำเภอ ${DATA[i][1].district}
                   จังหวัด ${DATA[i][1].province}
-                  รหัสไปรษณีย์ ${DATA[i][1].postcode}
-                  ,เบอร์โทร ${DATA[i][1].phone}</p>
-                  <!--<button class="ui labeled icon button" onclick="copytoClipboard('address${i}')">
+                  รหัสไปรษณีย์ ${DATA[i][1].postcode}</p>
+                  <button class="ui labeled icon button" onclick="copytoClipboard('address${i}')">
                     <i class="copy icon"></i>
                     คัดลอกที่อยู่
-                  </button>-->
+                  </button>
                 </div>
 
                 <div class="ui success message">
                   <div class="header">
-                    บริการที่เปิด
+                    ขั้นตอนการใช้งานง่ายๆ
                   </div>
-                  <div class="ui list">
-                  ${services}
-                  </div>
-                </div>
-
-                <div class="ui orange message">
-                  <div class="header">
-                    รายละเอียดโปรโมชั่น
-                  </div>
-                  <div class="ui list">
-                  ${promotionDetail}
+                  <div class="ui ordered list">
+                    <a class="item">คัดลอกที่อยู่จุดรับฝากพัสดุ</a>
+                    <a class="item">ใช้ที่อยู่นี้สั่งซื้อสินค้าทางอินเทอร์เน็ต</a>
+                    <a class="item">เมื่อพัสดุมาถึง ท่านจะได้รับโทรศัพท์จากเจ้าหน้าที่ให้ไปรับพัสดุ</a>
+                    <a class="item">ชำระค่าบริการ 15 บาท/พัสดุที่จุดรับนั้น</a>
                   </div>
                 </div>
 
@@ -280,35 +220,15 @@ function initAutocomplete() {
             var distanceFloat = parseFloat(DATA[i][2]).toFixed(2);
             DATA[i][3] = i;
 
-            var promotionTag = "";
-            if(DATA[i][1].promotion != "")
+            if(DATA[i][1].name.length > 23)
             {
-              lengthNumber = 8;
-              promotionTag = `<div class="right floated content">
-              <div class="ui tag orange  labels">
-              <br>
-                <a class="ui label">
-                  มีโปรโมชั่น
-                </a>
-              </div>
-              </div>`;
-            }else{
-              lengthNumber = 21;
-            }
-
-
-            if(DATA[i][1].name.length > lengthNumber)
-            {
-              var newlimitname = DATA[i][1].name.substring(0, lengthNumber) + "<br>" + DATA[i][1].name.substring(lengthNumber);
+              var newlimitname = DATA[i][1].name.substring(0, 23) + "<br>" + DATA[i][1].name.substring(23);
             }else{
               var newlimitname = DATA[i][1].name;
             }
 
-
-
             $("#sideItem").append(`
               <div class="item" onclick="bousetolatlng(${DATA[i][3]})">
-                ${promotionTag}
               <img width="70" height="70" class="ui image" src="${DATA[i][1].logo}">
               <div class="content">
               <div class="header">${newlimitname}</div>
