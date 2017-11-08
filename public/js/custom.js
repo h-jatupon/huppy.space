@@ -9,67 +9,6 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
-var provider = new firebase.auth.FacebookAuthProvider();
-
-firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-        var user = firebase.auth().currentUser;
-        var name, email, photoUrl, uid, emailVerified;
-        if (user != null) {
-            name = user.displayName;
-            email = user.email;
-            photoUrl = user.photoURL;
-            uid = user.uid;
-            $("#account_ui").html(
-                `
-          <img class="ui avatar image" src="${photoUrl}">
-          <div class="content">
-              <a class="header">${name}</a>
-              <div class="description">${email}</div>
-          </div>
-          <div class="right floated content" style="margin-left:10px;">
-            <div class="ui button" onclick="signOut()">ออกจากระบบ</div>
-          </div>
-      `);
-            $("#btn_login_html").html(
-                `
-                
-            `);
-        }
-    } else {
-        $("#btn_login_html").html(
-            `
-            <div class="ui horizontal divider">
-            หรือ
-          </div>
-        <button class="loginBtn loginBtn--facebook" onclick="signIn()">
-          ล็อกอินผ่าน Facebook
-        </button>
-    `);
-        $("#account_ui").html(``);
-    }
-});
-
-function signIn() {
-    firebase.auth().signInWithPopup(provider).then(function (result) {
-        var token = result.credential.accessToken;
-        var user = result.user;
-    }).catch(function (error) {
-        console.log(error.code);
-        console.log(error.message);
-    });
-}
-
-function signOut() {
-    firebase.auth().signOut().then(function () {
-        // Sign-out successful.
-    }).catch(function (error) {
-        // An error happened.
-    });
-}
-
-
 function initAutocomplete() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 13.880788, lng: 100.467057 },
@@ -143,7 +82,6 @@ function initAutocomplete() {
     });
 }
 
-
 function openModalSupport() {
     $('.support.modal')
         .modal('show')
@@ -179,8 +117,5 @@ $("#support_form").submit(function (e) {
         var errorMessage = error.message;
         console.log(errorCode);
         console.log(errorMessage);
-        if (errorCode == "PERMISSION_DENIED") {
-            alert("กรุณาเข้าสู่ระบบก่อนค่ะ")
-        }
     });
 });

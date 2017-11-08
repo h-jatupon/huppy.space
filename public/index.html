@@ -80,54 +80,111 @@
 
 <body>
   <div class="ui container">
-    <div class="ui top text menu stackable">
-      <a class="item" style="width:150px;">
-        <img src="images/logo.png" class="ui fluid image">
-      </a>
-
+    <div class="ui top text menu">
+      <div class="item">
+        <img src="images/logo.png" class="ui image" width="100" height="50">
+      </div>
       <div class="right menu">
         <a class="item" onclick="openModalSupport()">ความช่วยเหลือ</a>
-        <div class="item">
-          <div class="item" id="account_ui"></div>
-        </div>
       </div>
     </div>
 
     <div class="ui stackable grid">
-      <div class="column four wide">
-        <div class="ui vertical menu fluid">
-          <div class="item center aligned">
-            <h2 class="ui teal image header">
-              <img src="images/marker.png" class="image">
+      <div class="column twelve wide ">
+        <div class="ui top attached tabular menu">
+          <a class="active item " data-tab="first ">บริการ</a>
+          <a class="item " data-tab="second ">วิธีใช้งาน</a>
+          <a class="item " data-tab="third ">คุณจะได้รับ</a>
+        </div>
+        <div class="ui bottom attached active tab segment " data-tab="first ">
+          <div class="ui">
+            <h2 class="ui icon header center aligned">
+              <i class="question icon"></i>
               <div class="content">
-                ค้นจุดรับพัสดุ
+                สั่งซื้อสินค้าออนไลน์ แต่ไม่มีคนอยู่บ้านรอรับพัสดุ?
+                <div class="sub header">ปัญหาเหล่านี้จะหมดไป ใช้ที่อยู่ "จุดรับพัสดุ" ของเราเป็นที่อยู่จัดส่งสินค้าของคุณสิ</div>
               </div>
             </h2>
-            <form class="ui large form" id="placesearchform">
-              <div class="ui stacked">
-                <div class="field">
-                  <div class="ui left icon input">
-                    <i class="search icon"></i>
-                    <input type="text" placeholder="ค้นหาสถานที่" id="pac-input">
-                  </div>
+            <div id="mainImg"></div>
+          </div>
+        </div>
+        <div class="ui bottom attached tab segment center aligned" data-tab="second ">
+          <h2 class="ui header">
+            ขั้นตอนการใช้งาน
+          </h2>
+          <div class="ui steps large">
+            <div class="step">
+              <div class="content">
+                <h2 class="ui center aligned header">
+                  <img class="ui massive circular image" src="images/marker.png">
+                </h2>
+                <div class="title">1.เลือกที่อยู่จุดรับพัสดุ</div>
+                <div class="description">ที่ใกล้บ้านจากหน้าเว็บไซต์</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="content">
+                <h2 class="ui center aligned header">
+                  <img class="ui massive circular image" src="images/is_choose.png">
+                </h2>
+                <div class="title">2.สั่งซื้อของออนไลน์</div>
+                <div class="description">โดยใช้ที่อยู่จุดรับพัสดุ
+                  <br>เป็นที่อยู่จัดส่งสินค้า</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="content">
+                <h2 class="ui center aligned header">
+                  <img class="ui massive circular image" src="images/is_sms.png">
+                </h2>
+                <div class="title">3.รอรับ sms แจ้ง</div>
+                <div class="description">จากนั้นไปรับพัสดุ
+                  <br>ที่จุดรับพัสดุและ
+                  <br>ชำระค่าบริการ 15บาท</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui bottom attached tab segment " data-tab="third ">
+          <h2 class="ui icon header center aligned">
+            <i class="check icon green"></i>
+            <div class="content">
+              สิ่งที่คุณจะได้เมื่อใช้บริการจุดรับพัสดุ
+              <div class="sub header">มากกว่าความสะดวกสบาย คือความปลอดภัยของพัสดุ</div>
+            </div>
+          </h2>
+          <div class="ui stackable three column grid">
+            <div class="column">
+              <h2 class="ui center aligned header">
+                <img class="ui image" src="images/nevermiss.png">
+                <div class="content">
+                  ไม่พลาดการรับพัสดุอีกต่อไป
+                  <div class="sub header">ด้วยบริการจุดรับฝากพัสดุของเรา รับฝากได้นานถึง 7 วัน</div>
                 </div>
-                <input type="submit" class="ui fluid large teal submit button" value="ค้นหา">
-              </div>
-            </form>
-            <h2 class="ui center aligned header">
-              <div id="btn_login_html"></div>
-            </h2>
+              </h2>
+            </div>
+            <div class="column">
+              <h2 class="ui center aligned header">
+                <img class="ui image" src="images/warranty.png">
+                <div class="content">
+                  ได้รับประกันพัสดุสูงสุด 1500 บาท
+                  <br>
+                  <div class="sub header">หากพัสดุเสียหายโดยจุดรับ เราประกันทันทีตามมูลค่าจริงสูงสุดถึง 1500 บาท/พัสดุ</div>
+                </div>
+              </h2>
+            </div>
+            <div class="column">
+              <h2 class="ui center aligned header">
+                <img class="ui image" src="images/is_sms.png">
+                <div class="content">
+                  มี sms แจ้งเมื่อพัสดุมาถึง
+                  <div class="sub header">รู้ทันทีเมื่อพัสดุมาถึง คุณจะได้รับ sms แจ้งให้มารับพัสดุที่จุดรับ</div>
+                </div>
+              </h2>
+            </div>
           </div>
         </div>
       </div>
-      <div class="column twelve wide">
-        <div class="ui segment">
-          <div id="map"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="ui stackable grid">
       <div class="column four wide">
         <div class="ui yellow message">
           <i class="star icon"></i>
@@ -175,100 +232,38 @@
           </div>
         </div>
       </div>
-      <div class="column twelve wide ">
+    </div>
 
-        <div class="ui top attached tabular menu stackable">
-          <a class="active item " data-tab="first ">บริการของเรา</a>
-          <a class="item " data-tab="second ">ขั้นตอนการใช้งาน</a>
-          <a class="item " data-tab="third ">สิ่งที่คุณจะได้</a>
-        </div>
-        <div class="ui bottom attached active tab segment " data-tab="first ">
-          <div class="ui segment">
-            <h2 class="ui icon header center aligned">
-              <i class="question icon"></i>
+    <div class="ui stackable grid">
+      <div class="column four wide">
+        <div class="ui vertical menu fluid">
+          <div class="item center aligned">
+            <h2 class="ui teal image header">
+              <img src="images/marker.png" class="image">
               <div class="content">
-                เคยสั่งซื้อสินค้าออนไลน์ แต่พลาดการรับพัสดุ เพราะไม่อยู่บ้านไหม?
-                <div class="sub header">ปัญหาเหล่านี้จะหมดไปเพียงใช้ที่อยู่ "จุดรับพัสดุ" ของเราเป็นที่อยู่จัดส่งสินค้าของคุณแทน</div>
+                ค้นจุดรับพัสดุ
               </div>
             </h2>
-            <img class="ui image" src="https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/22813983_1498443613578802_5139618999381346189_n.jpg?oh=6ca426b42ba1d7ea790f30c77f6077f1&oe=5A6DE408">
+            <form class="ui large form" id="placesearchform">
+              <div class="ui stacked">
+                <div class="field">
+                  <div class="ui left icon input">
+                    <i class="search icon"></i>
+                    <input type="text" placeholder="ค้นหาสถานที่" id="pac-input">
+                  </div>
+                </div>
+                <input type="submit" class="ui fluid large teal submit button" value="ค้นหา">
+              </div>
+            </form>
+            <h2 class="ui center aligned header">
+              <div id="btn_login_html"></div>
+            </h2>
           </div>
         </div>
-        <div class="ui bottom attached tab segment " data-tab="second ">
-          <h2 class="ui header center aligned">
-            ขั้นตอนการใช้งาน
-          </h2>
-          <div class="ui ordered steps large">
-            <div class="step">
-              <div class="content">
-                <div class="title">เลือกที่อยู่จัดรับพัสดุ</div>
-                <div class="description">ที่ใกล้บ้านจากหน้าเว็บไซต์</div>
-                <h2 class="ui center aligned header">
-                  <img class="ui massive circular image" src="images/marker.png">
-                </h2>
-              </div>
-            </div>
-            <div class="step">
-              <div class="content">
-                <div class="title">สั่งซื้อของออนไลน์</div>
-                <div class="description">โดยใช้ที่อยู่จุดรับพัสดุ
-                  <br>เป็นที่อยู่จัดส่งสินค้า</div>
-                <h2 class="ui center aligned header">
-                  <img class="ui massive circular image" src="images/is_choose.png">
-                </h2>
-              </div>
-            </div>
-            <div class="step">
-              <div class="content">
-                <div class="title">รอรับ sms แจ้ง</div>
-                <div class="description">จากนั้นไปรับพัสดุ
-                  <br>ที่จุดรับพัสดุและ
-                  <br>ชำระค่าบริการ 15บาท</div>
-                <h2 class="ui center aligned header">
-                  <img class="ui massive circular image" src="images/is_sms.png">
-                </h2>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="ui bottom attached tab segment " data-tab="third ">
-          <h2 class="ui icon header center aligned">
-            <i class="check icon green"></i>
-            <div class="content">
-              สิ่งที่คุณจะได้เมื่อใช้บริการจุดรับพัสดุ
-              <div class="sub header">เราภูมิใจที่จะนำเสนอสิ่งที่คุณจะได้รับ มากกว่าความสะดวกสบาย คือความปลอดภัยของพัสดุ</div>
-            </div>
-          </h2>
-          <div class="ui stackable three column grid">
-            <div class="column">
-              <h2 class="ui center aligned header">
-                <img class="ui image" src="images/nevermiss.png">
-                <div class="content">
-                  ไม่พลาดการรับพัสดุอีกต่อไป
-                  <div class="sub header">ด้วยบริการจุดรับฝากพัสดุของเรา รับฝากได้นานถึง 7 วัน</div>
-                </div>
-              </h2>
-            </div>
-            <div class="column">
-              <h2 class="ui center aligned header">
-                <img class="ui image" src="images/warranty.png">
-                <div class="content">
-                  ได้รับประกันพัสดุสูงสุด 1500 บาท
-                  <br>
-                  <div class="sub header">หากพัสดุเสียหายโดยจุดรับ เราประกันทันทีตามมูลค่าจริงสูงสุดถึง 1500 บาท/พัสดุ</div>
-                </div>
-              </h2>
-            </div>
-            <div class="column">
-              <h2 class="ui center aligned header">
-                <img class="ui image" src="images/is_sms.png">
-                <div class="content">
-                  มี sms แจ้งเมื่อพัสดุมาถึง
-                  <div class="sub header">รู้ทันทีเมื่อพัสดุมาถึง คุณจะได้รับ sms แจ้งให้มารับพัสดุที่จุดรับ</div>
-                </div>
-              </h2>
-            </div>
-          </div>
+      </div>
+      <div class="column twelve wide">
+        <div class="ui segment">
+          <div id="map"></div>
         </div>
       </div>
     </div>
@@ -332,13 +327,22 @@
   <script>
     $('.menu .item')
       .tab()
-      ;  
+      ;
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      $("#mainImg").html(`
+        <img class="ui image" src="images/service_mobile.jpg">
+      `);
+    } else {
+      $("#mainImg").html(`
+        <img class="ui image" src="https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/22813983_1498443613578802_5139618999381346189_n.jpg?oh=6ca426b42ba1d7ea790f30c77f6077f1&oe=5A6DE408">
+      `);
+    }
   </script>
   <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
   <script src="js/custom.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9FP9WWQIHvzXnOR22UV6fCu0wcnkIffA&libraries=places&callback=initAutocomplete"
     async defer></script>
-
 </body>
 
 </html>
